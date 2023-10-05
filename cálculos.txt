@@ -1,0 +1,56 @@
+modo NORMAL: desconto INSS = 4,5% de salario <= 5000
+	     desconto IR = 12% sobre salario - 2500
+
+modo CRITICO: desconto 20% de salario
+	      desconto INSS sobre novo valor bruto
+
+modo OTIMO: acréscimo 25% de salario
+	    desconto INSS = 4,5% de salario <= 5000
+	    desconto IR = 12% sobre salario - 2500
+	
+
+
+testes:
+
+casos normais:
+	salario < 5000
+		salario <2500 = 2000 - (90) = 1910
+		salario >2500 = 3000 - (135+60) = 2805
+	salario > 5000 = 6000 - (225+420) = 5355
+
+casos critico:
+	salario > 5000 = 
+			>5000 = 7000 - (1400 + 225) = 5375
+			<5000 = 6000 - (1200 + 216) = 4584
+	salario < 5000 = 4000 - (800 + 144) = 3056
+
+casos otimo:
+	salario > 5000 = 4000 + (1000) - (225 + 300) = 4475
+	salario < 5000 && > 2500 = 3000 + (750) - (168,75 + 150) = 3.521,25
+	salario < 5000 && < 2500 = 1990 + (497,5) - (111.9375) = 2375.5625
+
+
+Entradas do programa:
+	Estado3
+	Salario
+Partições:
+	E1: estado NORMAL
+		MP: salario maior que 5000
+		MN: salario menor que 5000 e maior que 2500
+		MN2: salario menor que 5000 e menor que 2500
+	
+	E2: estado CRITICO
+		MP: salario maior que 5000 após o desconto de 20%
+		MP2: salario mario que 5000 e menor que 5000 após o desconto de 20%
+		MN: salario menor que 5000
+		
+	E3: estado OTIMO
+		MP: salario maior que 5000
+		MN: salario menor que 5000 e maior que 2500
+		MN2: salario menor que 5000 e menro que 2500
+Combinações:
+	E1,MP; E1,MN; E1,MN2;
+	E2,MP; E2,MP2; E2,MN;
+	E3,MP; E3,MN; E3,MN2;
+	
+	
