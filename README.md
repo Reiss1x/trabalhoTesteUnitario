@@ -13,3 +13,10 @@ conjunto de casos de teste potencialmente revelador de erros.
 
 13. Recupere os projetos do exercício 11 e faça análise de cobertura dos casos de teste.
 Acrescente casos de teste até obter 100% de cobertura de condição.
+
+
+Técnicas utilizadas: Test e AssertEquals.
+Defeitos encontrados: Criando uma condição para cada estado fazia com que fosse obrigatório retornar
+um valor que nunca seria acessado, assim, o test coverage nunca chegava a 100%. Retirando a condição
+do último estado o erro foi corrigido e o test coverage atingiu 100%
+Qualidade dos testes: Os testes desenvolvidos são de boa qualidade pois atingem todas as condições possíveis.
